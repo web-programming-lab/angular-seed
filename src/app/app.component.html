@@ -1,4 +1,25 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div style="padding: 20px">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.form.value)" #f="ngForm" novalidate>  
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="model.name" #name="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+            <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                <div *ngIf="name.errors.required">Name is required</div>
+            </div>
+        </div>
+        
+        <div>
+            <label>Email</label>
+            <input type="text" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email is required</div>
+                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button>Senden</button>
+        </div>
+    </form>
+</div>

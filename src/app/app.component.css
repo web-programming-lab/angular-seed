@@ -1,3 +1,4 @@
-p {
-    font-family: Lato;
-  }
+.invalid-feedback {
+  color: red;
+  margin-bottom: 10px;
+}
