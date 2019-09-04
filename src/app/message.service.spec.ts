@@ -11,12 +11,12 @@ describe('MessageService', () => {
     heroService = new MessageService(<any>httpClientSpy);
   });
 
-  it('should be created', () => {
+  it('should get messages', () => {
     const expectedMessages: any[] = [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
 
     httpClientSpy.get.and.returnValue(of(expectedMessages));
 
-    heroService.getMessages().subscribe(messages => expect(messages).toEqual(expectedMessages, 'expected heroes'), fail);
+    heroService.getMessages().subscribe(messages => expect(messages).toEqual(expectedMessages, 'expected messages'), fail);
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 });
