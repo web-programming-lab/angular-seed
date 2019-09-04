@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular';
+
+  completed: boolean = true;
+
+  items = [
+    {'name': 'One', 'color': 'red'},
+    {'name': 'Two', 'color': 'yellow'},
+    {'name': 'Three', 'color': 'blue'}
+  ];
+
+
 }

@@ -1,4 +1,14 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<li *ngFor="let item of items">
+  {{ item.name }}
+</li>
+
+<br><br>
+
+<div *ngIf="completed">Completed</div>
+<div *ngIf="!completed">Not Completed</div>
+
+<br><br>
+
+<li *ngFor="let item of items">
+  <span [ngStyle]="{ 'color': item.color }">{{ item.name }}</span>
+</li>
