@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AppBannerComponent } from './app-banner.component';
 import { MessageService } from '../message.service';
@@ -8,7 +8,7 @@ describe('AppBannerComponent', () => {
   let component: AppBannerComponent;
   let fixture: ComponentFixture<AppBannerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AppBannerComponent ],
       providers: [{ provide: MessageService, useValue: jasmine.createSpyObj('messageService', ['getMessages']) }]
