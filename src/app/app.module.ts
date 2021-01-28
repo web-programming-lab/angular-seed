@@ -17,7 +17,8 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ RouterModule.forRoot(
     appRoutes,
-    { enableTracing: true } // <-- debugging purposes only
+    { enableTracing: true, relativeLinkResolution: 'legacy' } // <-- debugging purposes only
+ // <-- debugging purposes only
   ), BrowserModule, FormsModule ],
   declarations: [ AppComponent, PageNotFoundComponent, Test1Component, Test2Component ],
   bootstrap:    [ AppComponent ]
