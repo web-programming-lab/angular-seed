@@ -10,17 +10,14 @@ import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 
 const appRoutes: Routes = [
-  { path: 'test1', component: Test1Component, data: { title: 'Test1' } },
-  { path: 'test2', component: Test2Component, data: { title: 'Test2' } },
+  { path: 'test1', component: Test1Component },
+  { path: 'test2', component: Test2Component },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
-  imports:      [ RouterModule.forRoot(
-    appRoutes,
-    { enableTracing: true, relativeLinkResolution: 'legacy' } // <-- debugging purposes only
- // <-- debugging purposes only
-  ), BrowserModule, FormsModule ],
-  declarations: [ AppComponent, PageNotFoundComponent, Test1Component, Test2Component ],
-  bootstrap:    [ AppComponent ]
+  imports: [RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    BrowserModule, FormsModule],
+  declarations: [AppComponent, PageNotFoundComponent, Test1Component, Test2Component],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
