@@ -27,9 +27,4 @@ export class AppComponent implements OnInit {
 
       console.log('Submit: ', data);
   }
-
-  onReset() {
-      this.submitted = false;
-      this.registerForm.reset();
-  }
 }
