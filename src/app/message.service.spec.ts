@@ -4,11 +4,11 @@ import { of } from 'rxjs';
 describe('MessageService', () => {
 
   let httpClientSpy: { get: jasmine.Spy };
-  let heroService: MessageService;
+  let messageService: MessageService;
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    heroService = new MessageService(<any>httpClientSpy);
+    messageService = new MessageService(<any>httpClientSpy);
   });
 
   it('should get messages', () => {
@@ -16,7 +16,7 @@ describe('MessageService', () => {
 
     httpClientSpy.get.and.returnValue(of(expectedMessages));
 
-    heroService.getMessages().subscribe(messages => expect(messages).toEqual(expectedMessages, 'expected messages'), fail);
+    messageService.getMessages().subscribe(messages => expect(messages).toEqual(expectedMessages, 'expected messages'), fail);
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 });
