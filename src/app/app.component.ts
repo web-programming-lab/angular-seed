@@ -1,5 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from "@angular/core";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
+interface FormValues {
+  name: string,
+  email: string
+}
 
 @Component({
   selector: "app-root",
@@ -19,7 +24,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onSubmit(data: any) {
+  onSubmit(data: FormValues) {
     this.submitted = true;
 
     // stop here if form is invalid
