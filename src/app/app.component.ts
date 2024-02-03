@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component } from "@angular/core";
+
+interface FormModel {
+  name: string;
+  email: string;
+}
 
 @Component({
-  selector: 'app',
-  templateUrl: 'app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-
-  model: any = {};
+  model: FormModel = { name: "", email: "" };
   submitted = false;
 
-  constructor() { }
+  constructor() {}
 
   onSubmit(data: any) {
     this.submitted = true;
-    console.log('Submit: ', data);
+    console.log("Submit: ", data);
   }
 }
