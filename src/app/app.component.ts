@@ -5,6 +5,11 @@ interface FormModel {
   email: string;
 }
 
+interface FormModel {
+  name: string;
+  email: string;
+}
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -16,7 +21,7 @@ export class AppComponent {
 
   constructor() {}
 
-  onSubmit(data: any) {
+  onSubmit(data: FormModel) {
     this.submitted = true;
     console.log("Submit: ", data);
   }
