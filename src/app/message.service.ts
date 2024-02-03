@@ -9,7 +9,7 @@ export class MessageService {
 
   constructor(private http:HttpClient) { }
 
-  getMessages(): Observable<any> {
+  getMessages(): Observable<unknown> {
     return this.http.get('api/messages.json');
   }
 }
