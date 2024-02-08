@@ -7,13 +7,14 @@ import {of} from 'rxjs';
 describe('AppBannerComponent', () => {
     let component: AppBannerComponent;
     let fixture: ComponentFixture<AppBannerComponent>;
+    let messageService: jasmine.SpyObj<MessageService> = jasmine.createSpyObj('messageService', ['getMessages'])
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [AppBannerComponent],
             providers: [{
                 provide: MessageService,
-                useValue: jasmine.createSpyObj('messageService', ['getMessages'])
+                useValue: messageService
             }]
         })
             .compileComponents();
@@ -27,7 +28,6 @@ describe('AppBannerComponent', () => {
 
     it('should get messages', () => {
         const observable = of([]);
-        const messageService = TestBed.inject(MessageService) as jasmine.SpyObj<MessageService>;
         messageService.getMessages.and.returnValue(observable)
 
         expect(component.getMessages()).toEqual(observable);

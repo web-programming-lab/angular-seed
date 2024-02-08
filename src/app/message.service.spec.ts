@@ -21,11 +21,14 @@ describe('MessageService', () => {
         httpClientSpy.get.and.returnValue(of(expectedMessages));
 
         messageService.getMessages().pipe(delay(2000)).subscribe(messages => {
-            expect(messages).toEqual(expectedMessages);
-            expect(httpClientSpy.get.calls.count()).toBe(1);
+            expect(true).toBe(false)
 
+            //expect(messages).toEqual(expectedMessages);
+            //
             done()
+
         });
 
+        expect(httpClientSpy.get.calls.count()).toBe(1);
     });
 });
