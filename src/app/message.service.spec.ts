@@ -1,5 +1,5 @@
 import {MessageService} from './message.service';
-import {of} from 'rxjs';
+import {delay, of} from 'rxjs';
 import {HttpClient} from "@angular/common/http";
 
 describe('MessageService', () => {
@@ -12,7 +12,7 @@ describe('MessageService', () => {
         messageService = new MessageService(httpClientSpy);
     });
 
-    it('should get messages', () => {
+    it('should get messages', (done) => {
         const expectedMessages: { id: number, name: string }[] = [
             {id: 1, name: 'A'},
             {id: 2, name: 'B'}
@@ -20,8 +20,12 @@ describe('MessageService', () => {
 
         httpClientSpy.get.and.returnValue(of(expectedMessages));
 
-        messageService.getMessages().subscribe(messages => expect(messages).toEqual(expectedMessages));
+        messageService.getMessages().pipe(delay(2000)).subscribe(messages => {
+            expect(messages).toEqual(expectedMessages);
+            expect(httpClientSpy.get.calls.count()).toBe(1);
 
-        expect(httpClientSpy.get.calls.count()).toBe(1);
+            done()
+        });
+
     });
 });
