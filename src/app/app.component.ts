@@ -5,11 +5,6 @@ interface FormModel {
   email: string;
 }
 
-interface FormModel {
-  name: string;
-  email: string;
-}
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
